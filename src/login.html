@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>YouWork</title>
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Import CSS-->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+
+<body>
+  <!-- NAVBAR-->
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top nav-color" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Image Logo -->
+          <a class="navbar-brand" href="index.html">
+            <div id="logo">
+              <img src="http://oi66.tinypic.com/if0s8y.jpg">
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="register.html" class="nav-text">
+                <span class="box-menu">Registrarse</span>
+              </a>
+            </li>
+            <li>
+              <a href="login.html" class="nav-text">
+                <span class="box-menu">Iniciar sesión</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- LOGIN -->
+    <section id="login">
+      <div class="wrapper index">
+        <form class="login">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2>Iniciar sesión</h2>
+          </div>
+          <input type="text" placeholder="Username" autofocus/>
+          <i class="fa fa-user"></i>
+          <input type="password" placeholder="Password" />
+          <i class="fa fa-key"></i>
+          <a href="#">¿Olvidaste tu contraseña?</a>
+          <button type="submit" class="btn btn-start-login">Iniciar sesión</button>
+        </form>
+      </div>
+    </section>
+  </header>
+  <!-- Import JS-->
+  <script src="index.js"></script>
+</body>
+
+</html>

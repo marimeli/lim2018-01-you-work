@@ -21,15 +21,25 @@ body {
 	transition: all 0.7s ease;
   border: none;
 }
-  
+
+.nav-color:hover {
+  background-color: rgba(0,0,0,0.1);
+  color: #080808;
+  border: none;
+  /* filter: brightness(0.5); */
+}
+
 .navbar-nav > li > a {
   color:  #080808;  /* color de letra navbar */
+  font-weight: bold;
+  border: none;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color:  #080808;
   padding: 15px 15px;
   background: #FFE500;
+  border: none;
 	/* font-weight: bold;  */
 }
 
@@ -111,6 +121,12 @@ img {
 }
 
 /* REGISTER */
+
+.index {
+  position: relative;
+  top: 100px;
+/*   z-index: 100; */
+}
 
 textarea {
 	resize: none;
