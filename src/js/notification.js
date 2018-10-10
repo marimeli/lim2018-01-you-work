@@ -1,5 +1,5 @@
 console.log('notific');
-window.sendEmail = (email, visitorX) => {
+window.sendEmail = (visitorX) => {
     $.ajax({
         type: "POST",
         url: "https://mandrillapp.com/api/1.0/messages/send.json",
@@ -12,21 +12,24 @@ window.sendEmail = (email, visitorX) => {
                 "from_email": "melissa.casas@laboratoria.la",
                 "from_name": "Comunal Coworking",
                 "to": [{
-                        "email": email,
-                        "name": `${visitorX.name}`,
-                        "type": 'to'
-                    }],
+                    "email": `${visitorX.guest}`,
+                    "name": `${visitorX.guest}`,
+                    "type": 'to'
+                }],
                 "headers": {
                     "Reply-To": "marimel.casas@gmail.com"
                 }
 
             },
-            "async": false,
+            "async": true,
             "ip_pool": "Main Pool",
             "send_at": "2018-08-06 10:00:00"
         }
-    }).done(response => {
-        console.log(response); // if you're into that sorta thing
-      });
+    }).then(res => {
+        console.log(res);
+    })
+        .catch(err => {
+            console.log(err);
+            /* reject_reason: */
+        })
 };
-   
