@@ -1,4 +1,3 @@
-console.log('notific');
 window.sendEmail = (visitorX) => {
     $.ajax({
         type: "POST",
@@ -7,8 +6,8 @@ window.sendEmail = (visitorX) => {
             'key': 'ZGiSDAUGJIgaCMIqm9ysPA',
             'message': {
                 "html": `<p>${visitorX.name} acaba de llegar. Por favor dirígase a la sala de recepción de Comunal Coworking para su encuentro</p>`,
-                "text": "Notificación Cita",
-                "subject": `${visitorX.name} tiene una visita`,
+                "text": "Notificación",
+                "subject": `Tiene una visita`,
                 "from_email": "melissa.casas@laboratoria.la",
                 "from_name": "Comunal Coworking",
                 "to": [{
@@ -27,9 +26,8 @@ window.sendEmail = (visitorX) => {
         }
     }).then(res => {
         console.log(res);
-    })
-        .catch(err => {
-            console.log(err);
-            /* reject_reason: */
-        })
+    }).catch(err => {
+        console.log(err);
+        /* reject_reason: */
+    });
 };

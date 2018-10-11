@@ -4,14 +4,13 @@ const btnSend = document.getElementById('btn-send');
 
 //--------------  WRITE DATA IN FIREBASE ------------------------------
 //  Función para guardar datos de visitante en Firebase 
-const wrtiteDataFirebase = () => {
-    event.preventDefault();
+window.wrtiteDataFirebase = () => {
     const name = document.getElementById('name').value;
     const id = document.getElementById('dni').value;
     const guest = document.getElementById('host').value;
     const message = document.getElementById('message').value;
     const date = new Date().toLocaleString();
-
+    event.preventDefault();
     const dataVisitor = firebase.database().ref().child('visitors');
     dataVisitor.push({
         name,
@@ -19,7 +18,7 @@ const wrtiteDataFirebase = () => {
         guest,
         message,
         date
-    })
+    });
 
     let ref = firebase.database().ref('/visitors');
     ref.once('value', (data) => {
@@ -49,5 +48,5 @@ const wrtiteDataFirebase = () => {
         });
 };
 
+//Eventos del DOM
 btnSend.addEventListener('click', wrtiteDataFirebase);
-

@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>YouWork</title>
-  <!-- Bootstrap CDN -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Import CSS-->
-  <link rel="stylesheet" href="css/style.css">
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<!-- Bootstrap CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Import CSS-->
+<link rel="stylesheet" href="css/style.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
 <body>
@@ -55,23 +59,49 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <h2>Iniciar sesión</h2>
           </div>
-          <input type="text" placeholder="Username" autofocus/>
+          <input id="email" name="email" type="email" placeholder="yourmail@example.com" autofocus/>
           <i class="fa fa-user"></i>
-          <input type="password" placeholder="Password" />
+          <p id="error-email" style="color: red"></p>
+          <input id="password" name="password" type="password" placeholder="Contraseña">
           <i class="fa fa-key"></i>
-          <a href="#">¿Olvidaste tu contraseña?</a>
-          <button type="submit" class="btn btn-start-login">Iniciar sesión</button>
+          <p id="error-password" style="color: red"></p>
+          <a href="#signin">¿Aún no tienes una cuenta?</a>
+          <input id="login-btn" class="btn btn-start-login" type="button" value="Iniciar sesión">
+          <input id="logout" class="btn btn-start-login" type="button" value="Cerrar Sesión">
+        </form>
+      </div>
+    </section>
+    
+    <!-- REGISTRO -->
+    <section id="signin">
+      <div class="wrapper index">
+        <form class="login">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2>Crear nueva cuenta</h2>
+          </div>
+          <input id="email-register" name="email" type="email" placeholder="yourmail@example.com" required>
+          <i class="fa fa-user"></i>
+          <p id="advice-emailRegister" style="color: red"></p>
+          <input id="password-register" name="password" type="password" placeholder="Contraseña" required>
+          <i class="fa fa-key"></i>
+          <p id="advice-passwordRegister" style="color: red"></p>
+          <input id="register-button" class="btn btn-start-login" type="button" value="Registrarse">
         </form>
       </div>
     </section>
   </header>
-  <!-- FIREBASE-->
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-  <!--  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script> -->
+
+
+  <!-- Firebase App-->
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
   <!-- Import JS-->
-  <script src="js/index.js"></script>
-  <script src="js/notification.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/dom.js"></script>
+  <!--  <script src="js/report.js"></script> -->
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->

@@ -76,16 +76,16 @@
                   <option value="marimel.casas@gmail.com">Melissa Casas</option>
                 </select>
               </div>
-              <div class="form-group" >
+              <div class="form-group">
                 <label class="form-label" for="message">Mensaje</label>
                 <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Mensaje..." tabindex="4"></textarea>
               </div>
- 
-                <div class="form-group col-md-6 text-center">
-                    <label class="form-label" for="btn-start">Tomar foto</label>
-                    <button type="submit" class="btn btn-camera" id="btn-start">Iniciar cámara</button>
-                    <button type="submit" class="btn btn-camera" id="btn-take-photo">Capturar imagen</button>
-                </div>
+
+              <div class="form-group col-md-6 text-center">
+                <label class="form-label" for="btn-start">Tomar foto</label>
+                <button type="submit" class="btn btn-camera" id="btn-start">Iniciar cámara</button>
+                <button type="submit" class="btn btn-camera" id="btn-take-photo">Capturar imagen</button>
+              </div>
 
               <div class="text-center">
                 <button type="submit" class="btn btn-start-order" id="btn-send">Enviar</button>
@@ -96,23 +96,14 @@
       </div>
     </section>
   </header>
-  <!-- FIREBASE-->
-  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCR5tps8jGzITCcwnIfIxpa_zBp3uE10v8",
-    authDomain: "you-work-lab.firebaseapp.com",
-    databaseURL: "https://you-work-lab.firebaseio.com",
-    projectId: "you-work-lab",
-    storageBucket: "you-work-lab.appspot.com",
-    messagingSenderId: "188359326263"
-  };
-  firebase.initializeApp(config);
-</script>
-  
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
   <!-- Import JS-->
-  <script src="js/index.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/register.js"></script>
   <script src="js/notification.js"></script>
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
