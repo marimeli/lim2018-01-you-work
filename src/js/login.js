@@ -32,7 +32,7 @@ window.registerWithFirebase = () => {
 window.loginWithFirebase = () => {
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then((result) => {
-            console.log('usuario inició sesiòn con éxito');
+            alert('Inicio de sesión con exitoso');
             console.log(result);
             const user = result.user;
             writeUserData(user.uid, user.displayName, user.email, user.photoURL);

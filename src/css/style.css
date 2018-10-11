@@ -255,10 +255,10 @@ input {
 	color: #080808;
 }
 
-.hide {
+/* .hide {
   display: none;
 }
-
+ */
 @media (min-width: 360px) {
   .home-container {
      width: 100%;

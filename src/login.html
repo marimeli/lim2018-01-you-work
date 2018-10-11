@@ -71,10 +71,10 @@
         </form>
       </div>
     </section>
-    
+
     <!-- REGISTRO -->
     <section id="signin">
-      <div class="wrapper index">
+      <div class="wrapper index hidden">
         <form class="login">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <h2>Crear nueva cuenta</h2>
@@ -89,8 +89,30 @@
         </form>
       </div>
     </section>
-  </header>
 
+    <!-- DASHBOARD -->
+    <section id="results" class="wrapper index">
+      <div class="container" id="principal">
+        <h2>Tablero de visitante</h2>
+        <p>Registro completo de visitantes:</p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nombre y apellido</th>
+              <th>DNI</th>
+              <th>Anfitrión</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+            </tr>
+          </thead>
+          <!-- Contenido que se llenará dinámicamente -->
+          <tbody id="contentTable">
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </header>
 
   <!-- Firebase App-->
   <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
