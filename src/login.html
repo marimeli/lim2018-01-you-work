@@ -67,7 +67,7 @@
           <p id="error-password" style="color: red"></p>
           <a href="#signin">¿Aún no tienes una cuenta?</a>
           <input id="login-btn" class="btn btn-start-login" type="button" value="Iniciar sesión">
-          <input id="logout" class="btn btn-start-login" type="button" value="Cerrar Sesión">
+          <!-- <input id="logout" class="btn btn-start-login" type="button" value="Cerrar Sesión"> -->
         </form>
       </div>
     </section>
@@ -93,8 +93,7 @@
     <!-- DASHBOARD -->
     <section id="dashboard" class="wrapper index">
       <div class="container">
-        <h2>Tablero de visitante</h2>
-        <!-- <p>Registro completo de visitantes:</p> -->
+        <h2>Informe de visitantes</h2>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -110,6 +109,9 @@
           <tbody id="table-content">
           </tbody>
         </table>
+        <div class="col-xl-3 text-center">
+          <input id="logout" class="btn btn-start-login" type="button" value="Cerrar Sesión">
+        </div>
       </div>
     </section>
   </header>

@@ -4,9 +4,12 @@ window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             console.log('Usuario logueado');
+            showDashboard();
+            printDashboard();
             writeUserData(user.uid, user.displayName, user.email, user.photoURL);
         } else {
             console.log('Usuario NO logueado');
+            showLogin();
         }
         console.log('User > ' + JSON.stringify(user)); //Imprime datos del usuario
     });
@@ -27,15 +30,38 @@ window.registerWithFirebase = () => {
         });
 };
 
+
+/* const showDashboard = () => {
+    const dashboardSection = document.getElementById('dashboard');
+    const loginSection = document.getElementById('login');
+
+    loginSection.classList.add("hidden");
+    dashboardSection.classList.remove("hidden");
+}; */
+
+//Cuando inicia sesión, esta función muestra nueva seccion y oculta la anterior.
+window.showDashboard = () => {
+    document.getElementById('dashboard').style.display = 'block';
+    document.getElementById('login').style.display = 'none';
+};
+
+//Cuando cierra sesión, esta función muestra la sección de login.
+window.showLogin = () => {
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+};
+
 //*********LOGIN EMAIL***********
 //Función que usa el método de autentificación para el login del administrador.
 window.loginWithFirebase = () => {
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then((result) => {
-            alert('Inicio de sesión con exitoso');
+            console.log('Inicio de sesión exitoso');
+           /*  alert('Inicio de sesión exitoso'); */
             console.log(result);
             const user = result.user;
             writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+            cleanTextarea();
         })
         .catch((error) => {
             callbackLogin(error);
@@ -69,7 +95,8 @@ window.writeUserData = (userId, name, email, imageUrl) => {
 };
 
 //---------------- DASHBOARD -------------------------------
-firebase.database().ref().child('visitors')
+const printDashboard = () => {
+    firebase.database().ref().child('visitors')
     .on('value', data => {
         let content = '';
         data.forEach(e => {
@@ -78,3 +105,9 @@ firebase.database().ref().child('visitors')
         });
         tableContent.innerHTML = content;
     });
+};
+
+const cleanTextarea = () => {
+    mail.value = '';
+    password.value = '';
+};
