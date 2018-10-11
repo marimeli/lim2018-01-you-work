@@ -52,31 +52,31 @@ window.wrtiteDataFirebase = () => {
     });
 };
 
-//Eventos del DOM
-btnSend.addEventListener('click', wrtiteDataFirebase);
-
 //---------------- TAKE A PHOTO -------------------------------
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
 window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
 
-btnStart.addEventListener('click', () => {
-  navigator.getUserMedia({
-    video: true
-  }, stream => {
-    const src = window.URL.createObjectURL(stream);
-    video.src = src;
-  }, e => {
-    console.log(e);
-  });
-  
+const getAPhoto = () => {
+ var canvas = document.getElementById('canvas');
+ var dataURL = canvas.toDataURL();
+ image.drawImage(video, 0, 0, canvas.width, canvas.height);
+ firebase.database().ref().child('visitors').push(dataURL);
+ console.log(dataURL);
+};
 
-  btnTakePhoto.addEventListener('click', () => {
-    const canvas = document.getElementById('canvas');
-    const dataURL = canvas.toDataURL();
-    image.drawImage(video, 0, 0, canvas.width, canvas.height);
-    firebase.database().ref().child('visitors').push(dataURL);
-    console.log(dataURL);
-  }, false);
+const initCamera = () => {
+ navigator.getUserMedia({
+   video: true
+ }, stream => {
+   const src = window.URL.createObjectURL(stream);
+   video.src = src;
+ }, e => {
+   console.log(e);
+ });
+};
 
-}, false);
+//Eventos del DOM
+btnSend.addEventListener('click', wrtiteDataFirebase);
+btnStart.addEventListener('click', initCamera, false);
+btnTakePhoto.addEventListener('click', getAPhoto, false);
