@@ -14,6 +14,8 @@ window.wrtiteDataFirebase = () => {
   const guest = document.getElementById('host').value;
   const message = document.getElementById('message').value;
   const date = new Date().toLocaleString();
+  /* const hour = new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds(); */
+
   event.preventDefault();
   const dataVisitor = firebase.database().ref().child('visitors');
   dataVisitor.push({
@@ -21,7 +23,8 @@ window.wrtiteDataFirebase = () => {
     id,
     guest,
     message,
-    date
+    date,
+    hour
   });
 
   let ref = firebase.database().ref('/visitors');

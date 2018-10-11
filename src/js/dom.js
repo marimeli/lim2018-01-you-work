@@ -13,6 +13,11 @@ const advicePasswordRegister = document.getElementById('advice-passwordRegister'
 const registerButton = document.getElementById('register-button');
 const loginButton = document.getElementById('login-btn');
 const logoutButton = document.getElementById('logout');
+//Secciones
+const dashboardSection = document.getElementById('dashboard');
+const signInSection = document.getElementById('sign-in');
+//Contenido de tablero
+const tableContent = document.getElementById('table-content');
 
 //Función callback para validar errores al momento de crear una nueva cuenta
 const callbackRegister = error => {

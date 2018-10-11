@@ -68,3 +68,13 @@ window.writeUserData = (userId, name, email, imageUrl) => {
         });
 };
 
+//---------------- DASHBOARD -------------------------------
+firebase.database().ref().child('visitors')
+    .on('value', data => {
+        let content = '';
+        data.forEach(e => {
+            const visit = e.val();
+            content += "<tr><td></td><td>" + visit.name + "</td><td>" + visit.id + "</td><td>" + visit.guest + "</td><td>" + visit.date + "</td></tr>";
+        });
+        tableContent.innerHTML = content;
+    });
