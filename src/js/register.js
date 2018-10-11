@@ -69,6 +69,7 @@ btnStart.addEventListener('click', () => {
   }, e => {
     console.log(e);
   });
+  
 
   btnTakePhoto.addEventListener('click', () => {
     const canvas = document.getElementById('canvas');
