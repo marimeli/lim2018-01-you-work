@@ -22,7 +22,7 @@ window.sendEmail = (visitorX) => {
             },
             "async": false,
             "ip_pool": "Main Pool",
-            "send_at": `${visitorX.date}`
+            "send_at": "2018-08-06 10:00:00"
         }
     }).then(res => {
         console.log(res);
