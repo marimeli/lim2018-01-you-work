@@ -1,7 +1,7 @@
-//Login containers
+//Login inputs
 const mail = document.getElementById('email');
 const password = document.getElementById('password');
-//Register containers
+//Register inputs
 const emailRegister = document.getElementById('email-register');
 const passwordRegister = document.getElementById('password-register');
 //Mensajes de alerta de error
@@ -10,14 +10,15 @@ const errorEmail = document.getElementById('error-email')
 const adviceEmailRegister = document.getElementById('advice-emailRegister');
 const advicePasswordRegister = document.getElementById('advice-passwordRegister');
 //Botones
-const registerButton = document.getElementById('register-button');
 const loginButton = document.getElementById('login-btn');
+const registerButton = document.getElementById('register-btn'); 
+const signinButton = document.getElementById('signin-btn');
+const backButton = document.getElementById('back');
 const logoutButton = document.getElementById('logout');
 //Secciones
-/* const dashboardSection = document.getElementById('dashboard'); */
-/* const signInSection = document.getElementById('sign-in'); 
-const loginSection = document.getElementById('login') */
-
+const signInSection = document.getElementById('sign-in'); 
+const loginSection = document.getElementById('login')
+const dashboardSection = document.getElementById('dashboard');
 //Contenido de tablero
 const tableContent = document.getElementById('table-content');
 
@@ -45,10 +46,39 @@ const callbackLogin = error => {
     }
 };
 
-/* DOM EVENTS */
-registerButton.addEventListener('click', registerWithFirebase);
-loginButton.addEventListener('click', loginWithFirebase);
-/* loginButton.addEventListener('click', showDashboard); */
-//Al escuchar el click del botón de login, llamar funcion que muestra section dashboard:
+//Cuando inicia sesión, esta función muestra nueva seccion y oculta la anterior.
+const showDashboard = () => {
+    dashboardSection.style.display = 'block';
+    loginSection.style.display = 'none';
+    signInSection.style.display = 'none';  
+};
 
+//Cuando cierra sesión, esta función muestra la sección de login.
+const showLogin = () => {
+    dashboardSection.style.display = 'none';
+    loginSection.style.display = 'block';
+    signInSection.style.display = 'none';  
+};
+
+//Cuando da clic en el botón para registar nueva cuenta, esta función muestra la sección de registro.
+const showRegister = () => {
+    loginSection.style.display = 'none';
+    signInSection.style.display = 'block';
+    dashboardSection.style.display = 'none';
+};
+
+//Cuando ingresa a la pestaña, esta función solo muestra la sección de login.
+const showOnlyLogin = () => {
+    dashboardSection.style.display = 'none';
+    signInSection.style.display = 'none';
+    loginSection.style.display = 'block';
+};
+
+/* DOM EVENTS */
+signinButton.addEventListener('click', registerWithFirebase);
+loginButton.addEventListener('click', loginWithFirebase);
 logoutButton.addEventListener('click', logoutWithFirebase);
+
+registerButton.addEventListener('click', showRegister);
+backButton.addEventListener('click', showLogin);
+

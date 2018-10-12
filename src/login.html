@@ -61,31 +61,32 @@
           </div>
           <input id="email" name="email" type="email" placeholder="yourmail@example.com" autofocus/>
           <i class="fa fa-user"></i>
-          <p id="error-email" style="color: red"></p>
+          <p id="error-email" class="err"></p>
           <input id="password" name="password" type="password" placeholder="Contraseña">
           <i class="fa fa-key"></i>
-          <p id="error-password" style="color: red"></p>
-          <a href="#signin">¿Aún no tienes una cuenta?</a>
+          <p id="error-password" class="err"></p>
           <input id="login-btn" class="btn btn-start-login" type="button" value="Iniciar sesión">
-          <!-- <input id="logout" class="btn btn-start-login" type="button" value="Cerrar Sesión"> -->
+          <p class="link">¿Aún no tienes una cuenta?</p>
+          <input id="register-btn" class="btn btn-default" type="button" value="¡Regístrate!">
         </form>
       </div>
     </section>
 
     <!-- REGISTRO -->
     <section id="sign-in">
-      <div class="wrapper index hidden">
+      <div class="wrapper index">
         <form class="login">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <h2>Crear nueva cuenta</h2>
           </div>
           <input id="email-register" name="email" type="email" placeholder="yourmail@example.com" required>
           <i class="fa fa-user"></i>
-          <p id="advice-emailRegister" style="color: red"></p>
+          <p id="advice-emailRegister" class="err"></p>
           <input id="password-register" name="password" type="password" placeholder="Contraseña" required>
           <i class="fa fa-key"></i>
-          <p id="advice-passwordRegister" style="color: red"></p>
-          <input id="register-button" class="btn btn-start-login" type="button" value="Registrarse">
+          <p id="advice-passwordRegister" class="err"></p>
+          <input id="signin-btn" class="btn btn-start-login" type="button" value="Registrarse">
+          <input id="back"class="btn btn-start-login" type="button" value="Atrás">
         </form>
       </div>
     </section>
@@ -102,7 +103,6 @@
               <th>DNI</th>
               <th>Anfitrión</th>
               <th>Fecha</th>
-              <!-- <th>Hora</th> -->
             </tr>
           </thead>
           <!-- Contenido que se llenará dinámicamente -->

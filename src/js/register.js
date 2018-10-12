@@ -24,7 +24,7 @@ window.wrtiteDataFirebase = () => {
     guest,
     message,
     date,
-    hour
+   /*  hour */
   });
 
   let ref = firebase.database().ref('/visitors');

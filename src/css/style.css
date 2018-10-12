@@ -259,6 +259,15 @@ input {
   display: none;
 }
 
+.err {
+  color: red;
+}
+
+.link {
+  color: blue;
+  text-decoration: none !important;
+  text-align: center !important;
+}
 
 @media (min-width: 360px) {
   .home-container {

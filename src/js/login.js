@@ -9,6 +9,7 @@ window.onload = () => {
             writeUserData(user.uid, user.displayName, user.email, user.photoURL);
         } else {
             console.log('Usuario NO logueado');
+            showOnlyLogin();
             showLogin();
         }
         console.log('User > ' + JSON.stringify(user)); //Imprime datos del usuario
@@ -28,27 +29,6 @@ window.registerWithFirebase = () => {
             console.log('Error Firebase > código > ' + error.code);
             console.log('Error Firebase > Mensaje > ' + error.message);
         });
-};
-
-
-/* const showDashboard = () => {
-    const dashboardSection = document.getElementById('dashboard');
-    const loginSection = document.getElementById('login');
-
-    loginSection.classList.add("hidden");
-    dashboardSection.classList.remove("hidden");
-}; */
-
-//Cuando inicia sesión, esta función muestra nueva seccion y oculta la anterior.
-window.showDashboard = () => {
-    document.getElementById('dashboard').style.display = 'block';
-    document.getElementById('login').style.display = 'none';
-};
-
-//Cuando cierra sesión, esta función muestra la sección de login.
-window.showLogin = () => {
-    document.getElementById('dashboard').style.display = 'none';
-    document.getElementById('login').style.display = 'block';
 };
 
 //*********LOGIN EMAIL***********
