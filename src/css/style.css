@@ -265,8 +265,8 @@ input {
 
 .link {
   color: blue;
-  text-decoration: none !important;
-  text-align: center !important;
+  text-decoration: none;
+  text-align: center;
 }
 
 @media (min-width: 360px) {
