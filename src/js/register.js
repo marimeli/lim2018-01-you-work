@@ -1,4 +1,9 @@
 // DOM
+const fullName = document.getElementById('name');
+const dni = document.getElementById('dni');
+const host = document.getElementById('host');
+const text = document.getElementById('message');
+
 const btnStart = document.getElementById('btn-start');
 const btnSend = document.getElementById('btn-send');
 const btnTakePhoto = document.querySelector('#btn-take-photo');
@@ -9,12 +14,11 @@ const video = document.querySelector('video');
 //--------------  WRITE DATA IN FIREBASE ------------------------------
 //  Función para guardar datos de visitante en Firebase 
 window.wrtiteDataFirebase = () => {
-  const name = document.getElementById('name').value;
-  const id = document.getElementById('dni').value;
-  const guest = document.getElementById('host').value;
-  const message = document.getElementById('message').value;
+  const name = fullName.value;
+  const id = dni.value;
+  const guest = host.value;
+  const message = text.value;
   const date = new Date().toLocaleString();
-  /* const hour = new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds(); */
 
   event.preventDefault();
   const dataVisitor = firebase.database().ref().child('visitors');
@@ -24,7 +28,6 @@ window.wrtiteDataFirebase = () => {
     guest,
     message,
     date,
-   /*  hour */
   });
 
   let ref = firebase.database().ref('/visitors');
@@ -32,7 +35,7 @@ window.wrtiteDataFirebase = () => {
     data.forEach(visitor => {
       let visitorKey = visitor.key,
         visitorX = visitor.val();
-      console.log('linea 29' + visitorKey); //LOUkc2zmfp9dLwSxlRk (el id de visitor)
+      console.log('linea 33' + visitorKey); //LOUkc2zmfp9dLwSxlRk (el id de visitor)
       console.log(visitorX); //es un objeto con las propiedad agregadas
 
       sendEmail(visitorX);
@@ -40,17 +43,11 @@ window.wrtiteDataFirebase = () => {
   })
     .then(result => {
       console.log(result);
-      console.log('Document written with ID:', result.ref);
-      document.getElementById('name').value = '';
-      document.getElementById('dni').value = '';
-      document.getElementById('host').value = '';
-      document.getElementById('message').value = '';
       alert('Registro exitoso')
-      /*  console.log(result.visitorKey); undefined */
-      //e {node_: e, ref_: t, index_: t}
+      cleanBoxes();
     })
     .catch((error) => {
-      console.error('Error adding document: ', error);
+      console.error('Error document: ', error);
       alert('Algo no ha salido bien, inténtelo de nuevo, por favor')
     });
 };
@@ -61,22 +58,29 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
 
 const getAPhoto = () => {
- var canvas = document.getElementById('canvas');
- var dataURL = canvas.toDataURL();
- image.drawImage(video, 0, 0, canvas.width, canvas.height);
- firebase.database().ref().child('visitors').push(dataURL);
- console.log(dataURL);
+  const canvas = document.getElementById('canvas');
+  var dataURL = canvas.toDataURL();
+  image.drawImage(video, 0, 0, canvas.width, canvas.height);
+  /* firebase.database().ref().child('visitors').push(dataURL);
+  console.log(dataURL); */
 };
 
 const initCamera = () => {
- navigator.getUserMedia({
-   video: true
- }, stream => {
-   const src = window.URL.createObjectURL(stream);
-   video.src = src;
- }, e => {
-   console.log(e);
- });
+  navigator.getUserMedia({
+    video: true
+  }, stream => {
+    const src = window.URL.createObjectURL(stream);
+    video.src = src;
+  }, e => {
+    console.log(e);
+  });
+};
+
+window.cleanBoxes = () => {
+  fullName.value = '';
+  dni.value = '';
+  host.value = '';
+  text.value = '';
 };
 
 //Eventos del DOM

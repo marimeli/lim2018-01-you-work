@@ -52,6 +52,8 @@
         </div>
       </div>
     </nav>
+  </header>
+  
     <!-- LOGIN -->
     <section id="login">
       <div class="wrapper index">
@@ -72,49 +74,48 @@
       </div>
     </section>
 
-    <!-- REGISTRO -->
-    <section id="sign-in">
-      <div class="wrapper index">
-        <form class="login">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <h2>Crear nueva cuenta</h2>
-          </div>
-          <input id="email-register" name="email" type="email" placeholder="yourmail@example.com" required>
-          <i class="fa fa-user"></i>
-          <p id="advice-emailRegister" class="err"></p>
-          <input id="password-register" name="password" type="password" placeholder="Contraseña" required>
-          <i class="fa fa-key"></i>
-          <p id="advice-passwordRegister" class="err"></p>
-          <input id="signin-btn" class="btn btn-start-login" type="button" value="Registrarse">
-          <input id="back"class="btn btn-start-login" type="button" value="Atrás">
-        </form>
-      </div>
-    </section>
-
-    <!-- DASHBOARD -->
-    <section id="dashboard" class="wrapper index">
-      <div class="container">
-        <h2>Informe de visitantes</h2>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Foto</th>
-              <th>Nombre y apellido</th>
-              <th>DNI</th>
-              <th>Anfitrión</th>
-              <th>Fecha</th>
-            </tr>
-          </thead>
-          <!-- Contenido que se llenará dinámicamente -->
-          <tbody id="table-content">
-          </tbody>
-        </table>
-        <div class="col-xl-3 text-center">
-          <input id="logout" class="btn btn-start-login" type="button" value="Cerrar Sesión">
+  <!-- REGISTRO -->
+  <section id="sign-in">
+    <div class="wrapper index">
+      <form class="login">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <h2>Crear nueva cuenta</h2>
         </div>
+        <input id="email-register" name="email" type="email" placeholder="yourmail@example.com" required>
+        <i class="fa fa-user"></i>
+        <p id="advice-emailRegister" class="err"></p>
+        <input id="password-register" name="password" type="password" placeholder="Contraseña" required>
+        <i class="fa fa-key"></i>
+        <p id="advice-passwordRegister" class="err"></p>
+        <input id="signin-btn" class="btn btn-start-login" type="button" value="Registrarse">
+        <input id="back" class="btn btn-start-login" type="button" value="Atrás">
+      </form>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="wrapper index">
+    <div class="container">
+      <h2>Informe de visitantes</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Nombre y apellido</th>
+            <th>DNI</th>
+            <th>Anfitrión</th>
+            <th>Mensaje</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <!-- Contenido que se llenará dinámicamente -->
+        <tbody id="table-content">
+        </tbody>
+      </table>
+      <div class="col-xl-3 text-center">
+        <input id="logout" class="btn btn-start-login" type="button" value="Cerrar Sesión">
       </div>
-    </section>
-  </header>
+    </div>
+  </section>
 
   <!-- Firebase App-->
   <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
